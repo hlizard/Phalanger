@@ -94,3 +94,8 @@ Deployment/Bin/PhpNetZip.dll
 Deployment/Bin/System.Data.SQLite.dll
 Deployment/Release*
 Deployment/Debug*
+
+*.tss
+*.output
+*.userprefs
+* - 副本*.cs

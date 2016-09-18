@@ -30,7 +30,9 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Dynamic\XmlReader.dynamic.cs" />
+    <Compile Include="Dynamic\XmlWriter.dynamic.cs" />
     <Compile Include="XmlReader.cs" />
+    <Compile Include="XmlWriter.cs" />
     <Compile Include="DomAttribute.cs" />
     <Compile Include="DomDocument.cs" />
     <Compile Include="DomElement.cs" />
@@ -131,6 +133,7 @@
     <DynamicClass Include="XsltProcessor.cs" />
     <DynamicClass Include="SimpleXml.cs" />
     <DynamicClass Include="XmlReader.cs" />
+    <DynamicClass Include="XmlWriter.cs" />
   </ItemGroup>
   <Target Name="BeforeCompile">
     <Exec Command="attrib -R &quot;$(ProjectDir)Dynamic\*.dynamic.cs&quot;" Condition="'$(OS)' == 'Windows_NT'" />

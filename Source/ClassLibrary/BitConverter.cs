@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 
  Copyright (c) 2004-2006 Tomas Matousek.  
 
@@ -831,7 +831,7 @@ namespace PHP.Library
 			Pack("x10X5x8x1X2x1X2").Dump(Console.Out);
 			Pack("@5s2c3", "+5e10", "007xasd", "-6", "49", ".1").Dump(Console.Out);
 			Pack("@5f2c3", "+5e10", "007xasd", "-6", "49", ".1").Dump(Console.Out);
-			Pack("a*", "ìšèøžýáíé").Dump(Console.Out);
+			Pack("a*", "Ã¬ÂšÃ¨Ã¸ÂžÃ½Ã¡Ã­Ã©").Dump(Console.Out);
 			Pack("a0", "xxx").Dump(Console.Out);
 		}
 
