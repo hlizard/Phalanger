@@ -71,8 +71,15 @@ namespace PHP.Library.Xml
         [PhpVisible]
         public bool writeElement(string name, [Optional] [Nullable] object content)
         {
+			//if (content == null)
+			//{
+			//	_writer.WriteElementString(name, content.ToString());
+			//	return true;
+			//}
+
             startElement(name);
 
+			if (content != null)
             if (content is string)
                 _writer.WriteString((string)content);
             else
@@ -84,6 +91,13 @@ namespace PHP.Library.Xml
         }
 
         [PhpVisible]
+		public bool text(string content)
+		{
+        	_writer.WriteString(content);
+			return true;
+		}
+
+        [PhpVisible]
         public string outputMemory([Optional] [Nullable] bool flush)
         {
             if (flush)
@@ -92,7 +106,13 @@ namespace PHP.Library.Xml
 			_buffer.Position = 0;
 			var sr = new StreamReader(_buffer, _encoding);
 			var myStr = sr.ReadToEnd();
-			return myStr;
-        }
+
+			//效果同iconv
+			var fromEncoding = Encoding.GetEncoding("GBK");
+			var toEncoding = Encoding.UTF8;
+			var fromBytes = fromEncoding.GetBytes(myStr);
+			var toBytes = Encoding.Convert(fromEncoding, toEncoding, fromBytes);
+			return Encoding.GetEncoding("ISO-8859-1").GetString(toBytes);
+		}
     }
 }
